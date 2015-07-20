@@ -3,9 +3,17 @@
 ** セレクタ命名について
 =========================================
 class値（CSSセレクタ名）は、BEM記法で付与する。
-基本的に、単語は略さない
+基本的に単語は略さないが、略しても常識的に意味の捉え方に差異が生じない場合は
+略してもOK。
 
 NG例：
 container -> cont ×
-text -> txt ×
 wrapper -> wrap ×
+heading -> hd ×
+center -> c ×
+clearfix -> cf ×
+
+OK例：
+column -> col ◯
+text -> txt ◯
+image -> img ◯
