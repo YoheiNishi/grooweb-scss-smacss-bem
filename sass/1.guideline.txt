@@ -1,0 +1,116 @@
+=========================================
+** GROOWEB SCSS SMACSS BEM
+** ガイドライン
+=========================================
+
+-----------------------------------------
+#1 SMACSSについて
+-----------------------------------------
+本プロジェクトは”SMACSS”の手法でHTML,CSSコーディングを行う。
+SMACSSでは、styleを以下のカテゴリに分けて記述する。
+
+1.Base
+2.Layout
+3.Module
+4.State
+5.Theme
+(6.Tools)
+
+---------
+1.Base
+---------
+本プロジェクトにおける、各要素のデフォルトのスタイルを定義する。
+* sass/base/_bases.scss ----> 各要素のデフォルトスタイル。
+* sass/base/_var.scss ------> sassの変数を定義。
+
+---------
+2.Layout
+---------
+header,footerなど大枠のレイアウトのスタイルを定義する。
+Layoutカテゴリに属するセレクタには、必ず先頭に"l-"を付与する。
+* sass/layout/_all.scss
+
+---------
+3.Module
+---------
+ページを構成するほとんどの要素がこのカテゴリに属する。
+再利用可能なモジュールと、そうでないモジュールの両方が該当する。
+セレクタの先頭に"m-"を付与する方法も通例だが、groowebでは省略する。
+モジュールの数は当然多くなる。
+1モジュールごと もしくは 同系統のモジュールをまとめて1つのscssファイルで定義する。
+
+例：.text-box,
+　　.text-photo-box　　これらを、 sass/module/text-box.scss　で定義。
+
+　　.menu-list-2cols
+　　.menu-list-3cols　　これらを、 sass/module/menu-list.scss　で定義。
+
+
+---------
+4.State
+---------
+例えばJavaScriptによる制御によって切り替わるような、状態を表すルールが該当する。
+Stateカテゴリに属するセレクタには、必ず先頭に"is-"を付与する。
+
+
+---------
+5.Theme
+---------
+今回のプロジェクトでは使用しない。
+
+
+---------
+6.Tools
+---------
+groowebによるカテゴリ。
+* sass/tools/_normalize.scss
+* sass/tools/_mixins.scss
+* sass/tools/_helpers.scss
+
+
+
+-----------------------------------------
+#2 BEMについて
+-----------------------------------------
+HTMLの各要素に付与するclass値の命名ルール。
+Block / Element / Modifier の頭文字を取っている。
+
+Block -----> 構成のルートとなる要素
+Element ---> Blockの子要素（構成要素）
+Modifier --> BlockまたはElementから変化した状態を表す
+
+---------
+groowebでのBEM記法
+---------
+.block
+.block__element
+.block__element--modifier
+.block--modifier
+.block--modifier__element
+
+HTMLで書くと以下のようになる：
+
+| <div class="block">
+|     <div class="block__element"></div>
+|     <div class="block__element block__element--modifier"></div>
+| </div>
+| <div class="block block--modifier">
+|     <div class="block__element block--modifier__element"></div>
+| </div>
+
+実際の例：
+
+| <article class="article">
+| 	<h2 class="article__title"></h2>
+| 	<div class="article__body">
+|		<div class="article__body__photo"></div>
+| 		<div class="article__body__text--latest"></div>
+| 	</div>
+| </article>
+
+
+
+
+
+
+

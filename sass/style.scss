@@ -1,0 +1,32 @@
+/*
+GROOWEB SCSS SMACSS BEM
+*/
+
+/* Tools */
+@import "tools/normalize";
+@import "tools/mixins";
+@import "tools/helpers";
+
+
+/* Base */
+@import "base/base";
+@import "base/var";
+
+
+/* Layout */
+@import "layout/all";
+
+
+/* Module */
+@import "module/xxxxx";
+
+/* State */
+// @import "state/xxxxx";
+
+
+/* Theme */
+// @import "theme/xxxxx";
+
+
+
+

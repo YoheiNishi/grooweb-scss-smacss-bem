@@ -1,0 +1,81 @@
+.text-align-center {
+	text-align: center;
+}
+
+.display-block {
+	display: block;
+}
+
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+
+/* margin
+-------------------------------*/
+ //.mb5 {margin-bottom: 5px} 
+ //.mb10 {margin-bottom: 10px} 
+ //.mb15 {margin-bottom: 15px} 
+ //.mb20 {margin-bottom: 20px} 
+ //.mb25 {margin-bottom: 25px} 
+ //.mb30 {margin-bottom: 30px} 
+ //.mb35 {margin-bottom: 35px} 
+ //.mb40 {margin-bottom: 40px} 
+ //.mb44 {margin-bottom: 45px} 
+ //.mb50 {margin-bottom: 50px} 
+ //.mb55 {margin-bottom: 55px} 
+ //.mb60 {margin-bottom: 60px} 
+ //.mb65 {margin-bottom: 65px} 
+ //.mb70 {margin-bottom: 70px} 
+ //.mb75 {margin-bottom: 75px} 
+ //.mb80 {margin-bottom: 80px} 
+ //.mb85 {margin-bottom: 85px} 
+ //.mb90 {margin-bottom: 90px} 
+ //.mb95 {margin-bottom: 95px} 
+ //.mb100 {margin-bottom: 100px} 
+ //.mb110 {margin-bottom: 110px} 
+ //.mb120 {margin-bottom: 120px} 
+ //.mb130 {margin-bottom: 130px} 
+ //.mb140 {margin-bottom: 140px} 
+ //.mb150 {margin-bottom: 150px} 
+ //.mb160 {margin-bottom: 160px} 
+ //.mb170 {margin-bottom: 170px} 
+ //.mb180 {margin-bottom: 180px} 
+ //.mb190 {margin-bottom: 190px} 
+ //.mb200 {margin-bottom: 200px} 
+
+ //.mt5 {margin-top: 5px} 
+ //.mt10 {margin-top: 10px} 
+ //.mt15 {margin-top: 15px} 
+ //.mt20 {margin-top: 20px} 
+ //.mt25 {margin-top: 25px} 
+ //.mt30 {margin-top: 30px} 
+ //.mt35 {margin-top: 35px} 
+ //.mt40 {margin-top: 40px} 
+ //.mt44 {margin-top: 45px} 
+ //.mt50 {margin-top: 50px} 
+ //.mt55 {margin-top: 55px} 
+ //.mt60 {margin-top: 60px} 
+ //.mt65 {margin-top: 65px} 
+ //.mt70 {margin-top: 70px} 
+ //.mt75 {margin-top: 75px} 
+ //.mt80 {margin-top: 80px} 
+ //.mt85 {margin-top: 85px} 
+ //.mt90 {margin-top: 90px} 
+ //.mt95 {margin-top: 95px} 
+ //.mt100 {margin-top: 100px} 
+ //.mt110 {margin-top: 110px} 
+ //.mt120 {margin-top: 120px} 
+ //.mt130 {margin-top: 130px} 
+ //.mt140 {margin-top: 140px} 
+ //.mt150 {margin-top: 150px} 
+ //.mt160 {margin-top: 160px} 
+ //.mt170 {margin-top: 170px} 
+ //.mt180 {margin-top: 180px} 
+ //.mt190 {margin-top: 190px} 
+ //.mt200 {margin-top: 200px} 
