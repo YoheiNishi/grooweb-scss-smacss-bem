@@ -3,12 +3,12 @@ GROOWEB SCSS SMACSS BEM
 */
 
 /* Tools */
+@import "tools/reset";
 @import "tools/mixins";
 @import "tools/helpers";
 
 
 /* Base */
-@import "base/reset";
 @import "base/var";
 @import "base/base";
 

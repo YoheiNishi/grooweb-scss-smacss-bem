@@ -24,3 +24,23 @@ var target = $(id).offset().top - offset;
 
 });
 
+
+
+//////////////////////////////////////////////
+//   SP/PC
+//////////////////////////////////////////////
+$(window).resize(windowResize);
+$(window).on('load',windowResize);
+function windowResize(){
+	var w = $(window).width();
+	var x = 640;
+	if (w <= x) {
+
+
+
+	} else {
+
+
+	}
+}
+//////////////////////////////////////////////
