@@ -14,6 +14,9 @@
 .clearfix {
 	@include clearfix;
 }
+.clear {
+	clear: both;
+}
 
 .sp-only {
 	display: none !important;
