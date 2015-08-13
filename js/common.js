@@ -29,18 +29,29 @@ var target = $(id).offset().top - offset;
 //////////////////////////////////////////////
 //   SP/PC
 //////////////////////////////////////////////
-$(window).resize(windowResize);
-$(window).on('load',windowResize);
 function windowResize(){
 	var w = $(window).width();
-	var x = 640;
-	if (w <= x) {
+	var x = 667;
+	var timer = false;
+	if (w <= x) { /*SP*/
 
 
 
-	} else {
+	} else { /*PC*/
 
 
 	}
+	//リサイズ終了時のみリロードする
+	if(event.type === 'resize') {
+		if (timer !== false) {
+			clearTimeout(timer);
+		}
+			timer = setTimeout(function() {
+			location.href = location.href;
+		}, 200);
+	}
+
 }
+$(window).resize(windowResize);
+$(window).on('load',windowResize);
 //////////////////////////////////////////////
