@@ -9,63 +9,83 @@
 本プロジェクトは”SMACSS”の手法でHTML,CSSコーディングを行う。
 SMACSSでは、styleを以下のカテゴリに分けて記述する。
 
-1.Base
-2.Layout
-3.Module
-4.State
-5.Theme
-(6.Tools)
+1.Base カテゴリ
+2.Layout カテゴリ
+3.Module カテゴリ
+4.State カテゴリ
+5.Theme カテゴリ
+(6.Tools カテゴリ)
 
----------
+
+------------------
 1.Base
----------
+------------------
 本プロジェクトにおける、各要素のデフォルトのスタイルを定義する。
-* sass/base/_bases.scss ----> 各要素のデフォルトスタイル。
-* sass/base/_var.scss ------> sassの変数を定義。
+* sass/base/_bases.scss ----> 各要素のデフォルトスタイル
+* sass/base/_var.scss ------> sassの変数を定義
 
----------
+
+------------------
 2.Layout
----------
+------------------
 header,footerなど大枠のレイアウトのスタイルを定義する。
 Layoutカテゴリに属するセレクタには、必ず先頭に"l-"を付与する。
-* sass/layout/_all.scss
+* sass/layout/_all.scss ----> 各要素のデフォルトスタイル
 
----------
+例：これらは_all.scssに記述する
+　　.l-wrapper
+　　.l-header
+　　.l-side
+　　.l-footer
+
+
+------------------
 3.Module
----------
+------------------
 ページを構成するほとんどの要素がこのカテゴリに属する。
 再利用可能なモジュールと、そうでないモジュールの両方が該当する。
-セレクタの先頭に"m-"を付与する方法も通例だが、groowebでは省略する。
+セレクタの先頭に"m-"を付与する方法もあるが、groowebルールでは省略する。
 モジュールの数は当然多くなる。
 1モジュールごと もしくは 同系統のモジュールをまとめて1つのscssファイルで定義する。
 
-例：.text-box,
-　　.text-photo-box　　これらを、 sass/module/text-box.scss　で定義。
+例）.text-box,
+　　.text-photo-box　　これらを、 sass/module/text-box.scss　で定義
 
 　　.menu-list-2cols
-　　.menu-list-3cols　　これらを、 sass/module/menu-list.scss　で定義。
+　　.menu-list-3cols　　これらを、 sass/module/menu-list.scss　で定義
+
+　　.footer-link
+　　.copyright　　　　　これらを、 sass/module/footer.scss　で定義
+
+＊ scssファイルの分け方は あまり難しく考えずに、別のコーダーが容易に理解でき、推測できればOK
 
 
----------
+
+------------------
 4.State
----------
+------------------
 例えばJavaScriptによる制御によって切り替わるような、状態を表すルールが該当する。
 Stateカテゴリに属するセレクタには、必ず先頭に"is-"を付与する。
 
+例）
+JavaScriptでフォントサイズの大中小を切り替える際のフォントサイズの定義
+.is-large-font
+.is-small-font
 
----------
+
+------------------
 5.Theme
----------
+------------------
 今回のプロジェクトでは使用しない。
 
 
----------
+------------------
 6.Tools
----------
+------------------
 groowebによるカテゴリ。
-* sass/tools/_normalize.scss
-* sass/tools/_mixins.scss
-* sass/tools/_helpers.scss
+* sass/tools/_reset.scss ------> 編集NG
+* sass/tools/_mixins.scss -----> 必要に応じて追記OK
+* sass/tools/_helpers.scss ----> 必要に応じて追記OK
 
 
 
