@@ -28,3 +28,14 @@
     -ms-border-radius: $radius;
     border-radius: $radius;
 }
+
+
+/* media quary */
+$mediumRange: 768px;
+@mixin mq($media) {
+    @if $media == sp {
+        @media screen and (max-width: #{$mediumRange}) {
+            @content;
+        }
+    }
+}
