@@ -1,3 +1,6 @@
+var breakpoint = 667 ;
+
+
 //////////////////////////////////////////////
 //
 //   Discriminate device
@@ -59,6 +62,19 @@ $(function(){
 
 });
 
+//////////////////////////////////////////////
+//
+//   Change Image
+//
+//////////////////////////////////////////////
+$(function(){
+	var wid = $(window).width();
+	if( wid < breakpoint ){
+		$('.change-img').each(function(){
+			$(this).attr("src",$(this).attr("src").replace('_pc', '_sp'));
+		});
+	}
+});
 
 
 
@@ -68,7 +84,6 @@ $(function(){
 //   SP size only
 //
 //////////////////////////////////////////////
-var breakpoint = 667 ;
 
 function sp_size(){
 	var w = $(window).width();
