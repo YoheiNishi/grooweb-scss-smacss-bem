@@ -1,126 +1,110 @@
-var breakpoint = 667 ;
+!function(){	// limit scope
+	$(function(){
+		var $window = $(window),
+		breakPoint = 667,
+		wid = $window.width(),
+		resizeTimer = false;
 
 
 //////////////////////////////////////////////
 //
-//   Discriminate device
+//   User Agent
 //
 //////////////////////////////////////////////
-var _ua = (function(u){
-  return {
-    Tablet:(u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1) 
-      || u.indexOf("ipad") != -1
-      || (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
-      || (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
-      || u.indexOf("kindle") != -1
-      || u.indexOf("silk") != -1
-      || u.indexOf("playbook") != -1,
-    Mobile:(u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
-      || u.indexOf("iphone") != -1
-      || u.indexOf("ipod") != -1
-      || (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
-      || (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
-      || u.indexOf("blackberry") != -1
-  }
-})(window.navigator.userAgent.toLowerCase());
-
-if(_ua.Mobile || _ua.Tablet){ // mobile & tablet only
-
-} else { // PC only
-// reload after resize window
-	var timer = false;
-	$(window).resize(function() {
-		if (timer !== false) {
-			clearTimeout(timer);
+		var _ua = (function(u){
+		  return {
+		    Tablet:(u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1)
+		      || u.indexOf("ipad") != -1
+		      || (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
+		      || (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
+		      || u.indexOf("kindle") != -1
+		      || u.indexOf("silk") != -1
+		      || u.indexOf("playbook") != -1,
+		    Mobile:(u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
+		      || u.indexOf("iphone") != -1
+		      || u.indexOf("ipod") != -1
+		      || (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
+		      || (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
+		      || u.indexOf("blackberry") != -1
+		  }
+		})(window.navigator.userAgent.toLowerCase());
+		if(_ua.Mobile || _ua.Tablet){
+			// mobile & tablet only
+		} else {
+			// PC only
 		}
-		timer = setTimeout(function() {
-			location.reload();
-		}, 200);
-	});
-
-}
-
-
-
-
-
-
 
 //////////////////////////////////////////////
 //
 //   All device
 //
 //////////////////////////////////////////////
-$(function(){
-
-	//// fade ////
-	$(".fade").hover(function(){
-		$(this).fadeTo(100, 0.6);
-	},function(){
-		$(this).fadeTo(300, 1.0);
-	});
-
-});
-
-//////////////////////////////////////////////
-//
-//   Change Image
-//
-//////////////////////////////////////////////
-$(function(){
-	var wid = $(window).width();
-	if( wid < breakpoint ){
-		$('.change-img').each(function(){
-			$(this).attr("src",$(this).attr("src").replace('_pc', '_sp'));
+		//// fade ////
+		$(".fade").hover(function(){
+			$(this).fadeTo(100, 0.6);
+		},function(){
+			$(this).fadeTo(300, 1.0);
 		});
-	}
-});
+
+		//// Break Point Discriminate ////
+		descriminateBp();
 
 
 
 
 //////////////////////////////////////////////
 //
-//   SP size only
+//   change Img
 //
 //////////////////////////////////////////////
-
-function sp_size(){
-	var w = $(window).width();
-	if (w <= breakpoint) {
-
-
-
-
-
-	}
-}
-
+		function changeImgSp(){
+			$('.change-img').each(function(){
+				$(this).attr("src",$(this).attr("src").replace('_pc', '_sp'));
+			});
+		}
+		function changeImgPc(){
+			$('.change-img').each(function(){
+				$(this).attr("src",$(this).attr("src").replace('_sp', '_pc'));
+			});
+		}
 
 
 //////////////////////////////////////////////
 //
-//   PC size only
+//   Break Point Discriminate
+//   以下にデバイス毎の処理を記述
 //
 //////////////////////////////////////////////
+		function descriminateBp(){
+			wid = $window.width();
+			if( wid <= breakPoint){
+//////////////////// sp Only /////////////////
 
-function pc_size(){
-	var w = $(window).width();
-	if (w > breakpoint) {
+
+
+				changeImgSp();
+			}else{
+//////////////////// pc Only /////////////////
 
 
 
-	}
-}
+
+				changeImgPc();
+			}
+		}
 
 //////////////////////////////////////////////
 //
-//   run
+//   Window Resize
 //
 //////////////////////////////////////////////
-
-$(window).resize(sp_size);
-$(window).on('load',sp_size);
-$(window).resize(pc_size);
-$(window).on('load',pc_size);
-
+		$window.resize(function() {
+			if (resizeTimer !== false) {
+				clearTimeout(resizeTimer);
+			}
+			resizeTimer = setTimeout(function() {
+				descriminateBp();
+			}, 200);
+		});
+	});
+}();
