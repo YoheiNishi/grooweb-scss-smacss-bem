@@ -3,7 +3,8 @@
 		var $window = $(window),
 		breakPoint = 667,
 		wid = $window.width(),
-		resizeTimer = false;
+		resizeTimer = false,
+		$body = $('body');
 
 
 //////////////////////////////////////////////
@@ -79,16 +80,16 @@
 //////////////////////////////////////////////
 		function descriminateBp(){
 			wid = $window.width();
-			if(wid <= breakPoint && !$('body').hasClass('mobile')){
+			if(wid <= breakPoint && !$body.hasClass('mobile')){
 //////////////////// sp Only /////////////////
                 spSizeOnly();
-                $('body').addClass('mobile');
+                $body.addClass('mobile');
                 changeImgSp();
 
-			}else if(wid > breakPoint && $('body').hasClass('mobile')){
+			}else if(wid > breakPoint && $body.hasClass('mobile')){
 //////////////////// pc Only /////////////////
                 pcSizeOnly();
-                $('body').removeClass('mobile');
+                $body.removeClass('mobile');
                 changeImgPc();
 			}
 		}
