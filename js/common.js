@@ -46,9 +46,12 @@
 			$(this).fadeTo(300, 1.0);
 		});
 
-		//// Break Point Discriminate ////
-		descriminateBp();
-
+        //// descriminate width of device ////
+        if(wid > breakPoint){
+            pcSizeOnly();
+        }else{
+            spSizeOnly();
+        }
 
 
 
@@ -72,26 +75,59 @@
 //////////////////////////////////////////////
 //
 //   Break Point Discriminate
-//   以下にデバイス毎の処理を記述
 //
 //////////////////////////////////////////////
 		function descriminateBp(){
 			wid = $window.width();
-			if( wid <= breakPoint){
+			if(wid <= breakPoint && !$('body').hasClass('mobile')){
 //////////////////// sp Only /////////////////
+                spSizeOnly();
+                $('body').addClass('mobile');
+                changeImgSp();
 
-
-
-				changeImgSp();
-			}else{
+			}else if(wid > breakPoint && $('body').hasClass('mobile')){
 //////////////////// pc Only /////////////////
-
-
-
-
-				changeImgPc();
+                pcSizeOnly();
+                $('body').removeClass('mobile');
+                changeImgPc();
 			}
 		}
+
+
+
+
+//////////////////////////////////////////////
+//
+//   Only Pc Size Processing
+//   Please describe processing of pc below
+//
+//////////////////////////////////////////////
+        function pcSizeOnly(){
+
+        }
+
+
+
+
+
+
+//////////////////////////////////////////////
+//
+//   Only Sp Size Processing
+//   Please describe processing of sp below
+//
+//////////////////////////////////////////////
+        function spSizeOnly(){
+
+        }
+
+
+
+
+
+
+
+
 
 //////////////////////////////////////////////
 //
@@ -102,9 +138,10 @@
 			if (resizeTimer !== false) {
 				clearTimeout(resizeTimer);
 			}
-			resizeTimer = setTimeout(function() {
-				descriminateBp();
-			}, 200);
+			resizeTimer = setTimeout(descriminateBp, 200);
 		});
 	});
+
+
+
 }();
