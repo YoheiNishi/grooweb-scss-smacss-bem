@@ -80,16 +80,14 @@
 //////////////////////////////////////////////
 		function descriminateBp(){
 			wid = $window.width();
-			if(wid <= breakPoint && !$body.hasClass('mobile')){
+			if(wid <= breakPoint){
 //////////////////// sp Only /////////////////
                 spSizeOnly();
-                $body.addClass('mobile');
                 changeImgSp();
 
-			}else if(wid > breakPoint && $body.hasClass('mobile')){
+			}else if(wid > breakPoint){
 //////////////////// pc Only /////////////////
                 pcSizeOnly();
-                $body.removeClass('mobile');
                 changeImgPc();
 			}
 		}
