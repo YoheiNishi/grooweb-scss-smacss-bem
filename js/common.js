@@ -47,12 +47,7 @@
 			$(this).fadeTo(300, 1.0);
 		});
 
-        //// descriminate width of device ////
-        if(wid > breakPoint){
-            pcSizeOnly();
-        }else{
-            spSizeOnly();
-        }
+		descriminateBp();
 
 
 
